@@ -1,0 +1,33 @@
+﻿@model BPOAmericas.TestDeveloper.MVC.Models.Login.LoginApiResponse
+
+@{
+    ViewData["Title"] = "Bienvenida";
+}
+
+<div class="container mt-5" style="max-width: 500px;">
+    <h2 class="mb-4 text-center">Bienvenido</h2>
+
+    <div class="mb-3">
+        <label class="form-label">ID Usuario</label>
+        <input type="text" class="form-control" value="@Model.IdUser" readonly />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Nombre de Usuario</label>
+        <input type="text" class="form-control" value="@Model.UserName" readonly />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Perfil</label>
+        <input type="text" class="form-control" value="@Model.UserProfile" readonly />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Último Ingreso</label>
+        <input type="text" class="form-control" value="@Model.LastLoginDate" readonly />
+    </div>
+
+    <form asp-controller="Login" asp-action="Logout" method="get">
+        <button type="submit" class="btn btn-danger w-100">Cerrar Sesión</button>
+    </form>
+</div>

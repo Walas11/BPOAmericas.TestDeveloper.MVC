@@ -1,0 +1,30 @@
+﻿@model BPOAmericas.TestDeveloper.MVC.Models.Login.LoginViewModel
+
+@{
+    ViewData["Title"] = "Iniciar Sesión";
+}
+
+<div class="container mt-5" style="max-width: 400px;">
+    <h2 class="mb-4 text-center">Iniciar Sesión</h2>
+
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div class="alert alert-danger">
+            @Html.ValidationSummary(false)
+        </div>
+    }
+
+    <form asp-controller="Login" asp-action="Index" method="post">
+        <div class="mb-3">
+            <label asp-for="Email" class="form-label">Usuario (correo)</label>
+            <input asp-for="Email" type="email" class="form-control" required />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Password" class="form-label">Contraseña</label>
+            <input asp-for="Password" type="password" class="form-control" required />
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Iniciar Sesión</button>
+    </form>
+</div>
