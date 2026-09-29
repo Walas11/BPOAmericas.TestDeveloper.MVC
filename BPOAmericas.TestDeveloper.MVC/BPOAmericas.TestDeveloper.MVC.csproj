@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BPOAmericas.TestDeveloper.API\BPOAmericas.TestDeveloper.API.csproj" />
+    <ProjectReference Include="..\BPOAmericas.TestDeveloper.Common\BPOAmericas.TestDeveloper.Common.csproj" />
   </ItemGroup>
 
 </Project>

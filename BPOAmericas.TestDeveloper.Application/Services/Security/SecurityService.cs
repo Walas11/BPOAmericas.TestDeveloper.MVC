@@ -1,18 +1,11 @@
 ﻿using BPOAmericas.TestDeveloper.Application.DTOs.Security;
 using BPOAmericas.TestDeveloper.Application.Services.Security.Interface;
-using BPOAmericas.TestDeveloper.Application.Services.TokenService.Interface;
 using BPOAmericas.TestDeveloper.Common.Services;
 
 namespace BPOAmericas.TestDeveloper.Application.Services.Security
 {
     public class SecurityService : IsecurityService
     {
-        private readonly ITokenService _tokenService;
-
-        public SecurityService(ITokenService tokenService)
-        {
-            _tokenService = tokenService;
-        }
         public LoginUserResponseDto LoginUser(LoginUserRequestDto requestDto)
         {
             string UserName = GeneralServices.Decode(requestDto.UserName);

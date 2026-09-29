@@ -1,4 +1,5 @@
-﻿using BPOAmericas.TestDeveloper.MVC.Models.Login;
+﻿using BPOAmericas.TestDeveloper.Common.Services;
+using BPOAmericas.TestDeveloper.MVC.Models.Login;
 using System.Text;
 
 namespace BPOAmericas.TestDeveloper.MVC.Services.Auth
@@ -12,12 +13,13 @@ namespace BPOAmericas.TestDeveloper.MVC.Services.Auth
             _httpClient = httpClient;
         }
 
-        public async Task<(LoginApiResponse response, string token)> LoginAsync(string email, string password, string clientIp, string userAgent)
+        public async Task<(LoginApiResponse response, string token)> 
+            LoginAsync(string email, string password, string clientIp, string userAgent)
         {
             var request = new LoginApiRequest
             {
-                UserName = Convert.ToBase64String(Encoding.UTF8.GetBytes(email)),
-                UserPassword = Convert.ToBase64String(Encoding.UTF8.GetBytes(password)),
+                UserName = GeneralServices.Encode(email),
+                UserPassword = GeneralServices.Encode(password),
                 ClientIP = clientIp,
                 UserAgent = userAgent
             };
